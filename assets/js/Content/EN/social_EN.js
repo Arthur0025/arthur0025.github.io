@@ -41,7 +41,7 @@
     metric_month: "Last 30 days",
     metric_week: "Last 7 days",
     metric_page: "This path",
-    dashboard_title: "GoatCounter Dashboard",
+    dashboard_title: "GoatCounter Stats",
     visitor_map: "Visitor Map"
   };
 })();

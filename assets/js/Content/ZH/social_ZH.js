@@ -41,7 +41,7 @@
     metric_month: "近 30 天",
     metric_week: "近 7 天",
     metric_page: "当前页面",
-    dashboard_title: "GoatCounter 面板",
+    dashboard_title: "GoatCounter 统计",
     visitor_map: "访客地图"
   };
 })();

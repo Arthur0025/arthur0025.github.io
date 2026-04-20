@@ -41,11 +41,25 @@
       <!-- GoatCounter dashboard -->
       <div class="stats-block">
         <div class="stats-subtitle">
-          <span data-i18n="dashboard_title">GoatCounter Dashboard</span>
-          <a class="stats-link" href="https://arthur0025.goatcounter.com/" target="_blank" rel="noopener" data-i18n="link_open">Open</a>
+          <span data-i18n="dashboard_title">GoatCounter Stats</span>
         </div>
 
-        <p class="stats-inline-note">GoatCounter 不允许嵌入页面内显示，已改为外链打开。</p>
+        <div class="stats-embed goatcounter-panel" id="gc-panel" aria-label="GoatCounter statistics panel"></div>
+      </div>
+
+      <div class="stats-block">
+        <div class="stats-subtitle">
+          <span data-i18n="visitor_map">Visitor Map</span>
+        </div>
+
+        <div class="stats-embed clustrmaps-wrap" aria-label="ClustrMaps visitor map">
+          <iframe
+            class="clustrmaps-frame"
+            src="https://clustrmaps.com/site/1c9sw"
+            title="ClustrMaps visitor map"
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
 
     </div>
@@ -60,6 +74,46 @@
 
 (function () {
   const GC_SITE = "https://arthur0025.goatcounter.com";
+
+  function formatCount(value) {
+    return new Intl.NumberFormat().format(value || 0);
+  }
+
+  function renderGoatCounterPanel(counts) {
+    const mount = document.getElementById("gc-panel");
+    if (!mount) return;
+
+    const lang = window.SiteLang && typeof window.SiteLang.getLang === "function"
+      ? window.SiteLang.getLang()
+      : "en";
+    const dict = lang === "zh" ? window.SOCIAL_ZH_I18N : window.SOCIAL_EN_I18N;
+
+    const items = [
+      { key: "metric_total", label: "All-time (Total)", value: counts.total },
+      { key: "metric_month", label: "Last 30 days", value: counts.month },
+      { key: "metric_week", label: "Last 7 days", value: counts.week },
+      { key: "metric_page", label: "This path", value: counts.page },
+    ];
+
+    const max = Math.max(1, ...items.map((item) => item.value));
+    mount.innerHTML = items
+      .map((item) => {
+        const width = Math.max(6, Math.round((item.value / max) * 100));
+        const label = (dict && dict[item.key]) || item.label;
+        return `
+          <div class="goatcounter-row">
+            <div class="goatcounter-row-head">
+              <span>${label}</span>
+              <strong>${formatCount(item.value)}</strong>
+            </div>
+            <div class="goatcounter-bar" role="img" aria-label="${label}: ${item.value}">
+              <span style="width:${width}%"></span>
+            </div>
+          </div>
+        `;
+      })
+      .join("");
+  }
 
   async function fetchCounter(path, start) {
     const qs = new URLSearchParams();
@@ -79,12 +133,18 @@
 
   async function initStats() {
     try {
-      await setText("gc-total", await fetchCounter("TOTAL"));
-      await setText("gc-month", await fetchCounter("TOTAL", "month"));
-      await setText("gc-week", await fetchCounter("TOTAL", "week"));
+      const total = await fetchCounter("TOTAL");
+      const month = await fetchCounter("TOTAL", "month");
+      const week = await fetchCounter("TOTAL", "week");
 
       const p = window.location.pathname || "/";
-      await setText("gc-page", await fetchCounter(p));
+      const page = await fetchCounter(p);
+
+      await setText("gc-total", total);
+      await setText("gc-month", month);
+      await setText("gc-week", week);
+      await setText("gc-page", page);
+      renderGoatCounterPanel({ total, month, week, page });
     } catch (e) {
       ["gc-total", "gc-month", "gc-week", "gc-page"].forEach((id) => {
         const el = document.getElementById(id);
@@ -92,6 +152,7 @@
         el.textContent = "0";
         el.title = "GoatCounter visitor-counter may be disabled in settings.";
       });
+      renderGoatCounterPanel({ total: 0, month: 0, week: 0, page: 0 });
     }
   }
 
