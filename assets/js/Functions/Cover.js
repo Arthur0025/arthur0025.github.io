@@ -210,7 +210,7 @@
         <img src="./assets/images/avatar.jpg" alt="Profile Avatar" loading="lazy">
       </div>
 
-      <div id="name">Stardust</div>
+      <div id="name">Arthur.yin</div>
       <div id="slogan">${slogan}</div>
 
       <button id="cover-scroll"
