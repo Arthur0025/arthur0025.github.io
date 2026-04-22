@@ -112,7 +112,7 @@
           <span class="subheading-title">Teaching Assistant, "Linear Algebra B1"</span>
           <span>Feb. 2026 -- Jul. 2026</span>
         </div>
-        <div class="subsubheading">Instructor: <strong>Prof. Yue Le</strong></div>
+        <div class="subsubheading">Instructor: <strong>Prof. Jue Le</strong></div>
         <ul>
           <li>
             Organized and wrote detailed exercise solutions and reference answers; maintained an open-source repository for students:
