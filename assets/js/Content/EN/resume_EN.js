@@ -32,7 +32,7 @@
       
       <div class="section">
         <h2>Research Interests</h2>
-        <ul><li>Deep Learning, Large Language Models (LLMs), Computational Fluid Dynamics (CFD), Scientific Computing, Numerical Analysis, Mathematical Modeling.</li></ul>
+        <ul><li>Large Language Models (LLMs), Personalized Recommendation, Trustworthy AI, Computational Fluid Dynamics (CFD), Scientific Computing, Numerical Analysis, Mathematical Modeling.</li></ul>
       </div>
 
       <div class="section">
@@ -72,7 +72,7 @@
           </tr>
 
           <tr>
-            <td>Fengjin Scholarship</td>
+            <td>Fenjin Scholarship</td>
             <td align="right">2024</td>
           </tr>
 
