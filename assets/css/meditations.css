@@ -199,6 +199,11 @@ body[data-lang="zh"] #meditations .medit-row-small .medit-title{
   margin: 0.25em 0;
 }
 
+/* stanza spacing for poems */
+.medit-poem .stanza{
+  margin-bottom: 1.1em;
+}
+
 /* Epilogue signature / date line */
 #meditations .medit-body p.medit-signature{
   text-align: right;
