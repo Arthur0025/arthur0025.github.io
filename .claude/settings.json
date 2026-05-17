@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Add-Type -AssemblyName \"System.Text.Encoding\"; $filePath = \"d:\\\\arthur0025\\\\arthur0025.github.io\\\\2026-课程大作业1.pdf\"; if \\(Test-Path $filePath\\) { Write-Output \"File exists, size: $\\(\\(Get-Item $filePath\\).Length\\) bytes\" } else { Write-Output \"File not found\" })"
+    ]
+  }
+}

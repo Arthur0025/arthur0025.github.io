@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($pdfPath = \"d:\\\\arthur0025\\\\arthur0025.github.io\\\\2026-课程大作业1.pdf\"; try { Add-Type -AssemblyName \"iTextSharp\" -ErrorAction Stop } catch { }; $found = Get-Command python -ErrorAction SilentlyContinue; if \\($found\\) { Write-Output \"PYTHON_FOUND: $\\($found.Source\\)\" } else { Write-Output \"NO_PYTHON\"; $found3 = Get-Command python3 -ErrorAction SilentlyContinue; if \\($found3\\) { Write-Output \"PYTHON3_FOUND: $\\($found3.Source\\)\" } })",
+      "PowerShell($pdfPath = \"d:\\\\arthur0025\\\\arthur0025.github.io\\\\2026-课程大作业1.pdf\"; try { $word = New-Object -ComObject Word.Application; $word.Visible = $false; $doc = $word.Documents.Open\\($pdfPath\\); $text = $doc.Content.Text; $doc.Close\\(\\); $word.Quit\\(\\); Write-Output $text; } catch { Write-Output \"COM_FAILED: $\\($_.Exception.Message\\)\" })",
+      "PowerShell(if \\(Get-Command node -ErrorAction SilentlyContinue\\) { Write-Output \"NODE_FOUND: $\\(\\(Get-Command node\\).Source\\)\"; node -v } else { Write-Output \"NO_NODE\" })",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\arthur0025\\\\arthur0025.github.io\" -Directory | Where-Object { $_.Name -eq \"node_modules\" }; Get-ChildItem -Path \"d:\\\\arthur0025\\\\arthur0025.github.io\" -File | Where-Object { $_.Name -match \"^\\(_tmp|package\\)\" })"
+    ]
+  }
+}
