@@ -64,27 +64,6 @@
       </div>
       
       <div class="section">
-        <h2>Honors & Awards</h2>
-        <table width="100%">
-          <tr>
-            <td>Excellent Student Scholarship--Bronze</td>
-            <td align="right">2025</td>
-          </tr>
-
-          <tr>
-            <td>Fenjin Scholarship</td>
-            <td align="right">2024</td>
-          </tr>
-
-          <tr>
-            <td>Excellent Student Scholarship--Bronze</td>
-            <td align="right">2024</td>
-          </tr>
-
-        </table>
-      </div>
-      
-      <div class="section">
         <h2>Research Experience</h2>
         <div class="subheading">
           <span class="subheading-title">Deep-Learning-Based Offshore Wind Turbine Wake Modeling</span>

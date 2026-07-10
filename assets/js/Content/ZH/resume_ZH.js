@@ -62,27 +62,6 @@
       </div>
       
       <div class="section">
-        <h2>荣誉与奖项</h2>
-        <table width="100%">
-          <tr>
-            <td>优秀学生奖学金 (铜奖)</td>
-            <td align="right">2025</td>
-          </tr>
-
-          <tr>
-            <td>奋进奖学金</td>
-            <td align="right">2024</td>
-          </tr>
-
-          <tr>
-            <td>优秀学生奖学金 (铜奖)</td>
-            <td align="right">2024</td>
-          </tr>
-
-        </table>
-      </div>
-      
-      <div class="section">
         <h2>科研经历</h2>
         <div class="subheading">
           <span class="subheading-title">基于深度学习的海上风机尾流建模</span>
